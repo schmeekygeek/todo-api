@@ -6,8 +6,8 @@ import io.schmeekydev.todoApp.entities.User;
 
 public interface UserService {
     User createUser(User user);
-    User updateUser(User user, int userId);
-    User getUserById(int userId);
+    User updateUser(User user, int userID);
+    User getUserById(int userID);
     List<User> getAllUsers();
-    void deleteUser(Integer userId);
+    void deleteUser(Integer userID);
 }

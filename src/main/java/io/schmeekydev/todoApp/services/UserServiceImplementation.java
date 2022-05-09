@@ -20,10 +20,10 @@ public class UserServiceImplementation implements UserService {
 	}
 
 	@Override
-	public User updateUser(User user, int userId) {
+	public User updateUser(User user, int userID) {
 		User updatedUser =
-			this.userRepository.findById(userId)
-				.orElseThrow(() -> new ResourceNotFoundException("User", "ID", userId)
+			this.userRepository.findById(userID)
+				.orElseThrow(() -> new ResourceNotFoundException("User", "ID", userID)
 				);
 		updatedUser.setName(user.getName());
 		updatedUser.setEmail(user.getEmail());
@@ -33,9 +33,9 @@ public class UserServiceImplementation implements UserService {
 	}
 
 	@Override
-	public User getUserById(int userId) {
-        User user = this.userRepository.findById(userId)
-            .orElseThrow(() -> new ResourceNotFoundException("User", "ID", userId));
+	public User getUserById(int userID) {
+        User user = this.userRepository.findById(userID)
+            .orElseThrow(() -> new ResourceNotFoundException("User", "ID", userID));
         return user;
 	}
 
@@ -46,8 +46,8 @@ public class UserServiceImplementation implements UserService {
 	}
 
 	@Override
-	public void deleteUser(Integer userId) {
-        User user = this.userRepository.findById(userId).orElseThrow(() -> new ResourceNotFoundException("User", " ID ", userId));
+	public void deleteUser(Integer userID) {
+        User user = this.userRepository.findById(userID).orElseThrow(() -> new ResourceNotFoundException("User", " ID ", userID));
         this.userRepository.delete(user);
 	}
 }
