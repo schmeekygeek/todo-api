@@ -6,9 +6,11 @@ import io.schmeekydev.todoApp.entities.Task;
 
 public interface TaskService {
 
-    public List<Task> getAllTasks();
-    public Task getTaskById(int taskID);
-    public Task createTask(Task task, int userID);
-    public Task updateTask(Task task, int taskID);
-    public void deleteTask(int taskID);
+    List<Task> getAllTasks();
+    Task getTaskById(int taskID);
+    List<Task> getTaskByUser(int userID);
+    Task createTask(Task task, int userID);
+    Task updateTaskByID(Task task, int taskID);
+    void deleteTask(int taskID);
+    // List<Task> searchTaskTitleByKeyword(String keyword);
 }
