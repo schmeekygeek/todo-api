@@ -4,7 +4,7 @@ import java.util.List;
 
 import io.schmeekydev.todoApp.entities.Task;
 
-public interface TaskService {
+public abstract interface TaskService {
 
     List<Task> getAllTasks();
     Task getTaskById(int taskID);
@@ -12,5 +12,5 @@ public interface TaskService {
     Task createTask(Task task, int userID);
     Task updateTaskByID(Task task, int taskID);
     void deleteTask(int taskID);
-    // List<Task> searchTaskTitleByKeyword(String keyword);
+    List<Task> searchTaskTitleByKeyword(String keyword);
 }

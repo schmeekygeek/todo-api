@@ -65,11 +65,11 @@ public class TaskServiceImplementation implements TaskService {
 	}
 
     // Search task from provided keyword
-	// @Override
-	// public List<Task> searchTaskTitleByKeyword(String keyword) {
-        // List<Task> tasks = this.taskRepository.searchTaskTitleByKeyword(keyword);
-        // if(tasks.isEmpty())
-            // throw new ResourceNotFoundException("Task", "Keyword", keyword);
-        // return tasks;
-	// }
+	@Override
+	public List<Task> searchTaskTitleByKeyword(String keyword) {
+        List<Task> tasks = this.taskRepository.findByTitleContaining(keyword);
+        if(tasks.isEmpty())
+            throw new ResourceNotFoundException("Task", "Keyword", keyword);
+        return tasks;
+	}
 }
