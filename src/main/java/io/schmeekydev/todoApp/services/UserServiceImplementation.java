@@ -1,11 +1,13 @@
 package io.schmeekydev.todoApp.services;
 
+import java.util.List;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
 import io.schmeekydev.todoApp.entities.User;
 import io.schmeekydev.todoApp.exceptions.ResourceNotFoundException;
 import io.schmeekydev.todoApp.repositories.UserRepository;
-import java.util.List;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Service;
 
 @Service
 public class UserServiceImplementation implements UserService {
@@ -15,8 +17,7 @@ public class UserServiceImplementation implements UserService {
 
 	@Override
 	public User createUser(User user) {
-		User newUser = this.userRepository.save(user);
-		return newUser;
+		return this.userRepository.save(user);
 	}
 
 	@Override

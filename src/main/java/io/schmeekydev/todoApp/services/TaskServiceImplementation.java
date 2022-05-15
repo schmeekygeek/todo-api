@@ -21,7 +21,10 @@ public class TaskServiceImplementation implements TaskService {
     // GET all tasks
 	@Override
 	public List<Task> getAllTasks() {
-        return this.taskRepository.findAll();
+        List<Task> tasks = this.taskRepository.findAll();
+        if(tasks.isEmpty())
+            throw new ResourceNotFoundException("Cannot find any tasks");
+        return tasks;
 	}
 
     // GET by id
