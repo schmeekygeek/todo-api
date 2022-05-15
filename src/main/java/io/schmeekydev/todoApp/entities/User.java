@@ -5,6 +5,11 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.validation.constraints.Email;
+import javax.validation.constraints.NotEmpty;
+import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Pattern;
+import javax.validation.constraints.Size;
 
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -20,9 +25,32 @@ public class User {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private int id;
 
-    @Column(name = "user_name", nullable = false, length = 100)
+    @Column(name = "name", nullable = false, length = 100)
+    @NotNull
+    @NotEmpty
+    @Size(min = 5, max = 30)
     private String name;
+
+    @Column(name = "username", nullable = false, length = 20)
+    @NotNull
+    @NotEmpty
+    @Size(min = 3, max = 20)
+    private String username;
+
+    @Email
+    @NotNull
+    @NotEmpty
     private String email;
+
+    @Column(name = "password", nullable = false, length = 100)
+    @NotNull
+    @NotEmpty
+    @Pattern(regexp = "[a-zA-Z0-9]+$")
+    @Size(min = 6, max = 200)
     private String password;
+
+    @NotNull
+    @NotEmpty
+    @Size(min = 5, max = 100)
     private String about;
 }

@@ -4,6 +4,9 @@ import io.schmeekydev.todoApp.entities.User;
 import io.schmeekydev.todoApp.payloads.ApiResponse;
 import io.schmeekydev.todoApp.services.UserService;
 import java.util.List;
+
+import javax.validation.Valid;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -28,13 +31,13 @@ public class UserController {
 
 	// POST
 	@PostMapping
-	public ResponseEntity<User> createUser(@RequestBody User user) {
+	public ResponseEntity<User> createUser(@Valid @RequestBody User user) {
 		User createdUser = this.userService.createUser(user);
 		return new ResponseEntity<>(createdUser, HttpStatus.CREATED);
 	}
 
 	// PUT
-	@PutMapping("update/{userID}")
+	@PutMapping("/update/{userID}")
 	public ResponseEntity<User> updateUser(
 		@RequestBody User user,
 		@PathVariable("userID") int userID
@@ -50,6 +53,7 @@ public class UserController {
 	public ResponseEntity<ApiResponse> deleteUser(
 		@PathVariable("id") int userID
 	) {
+        this.userService.deleteUser(userID);
 		return new ResponseEntity<>(
 			new ApiResponse(String.format(USER_DELETED_MSG, userID), true),
 			HttpStatus.OK

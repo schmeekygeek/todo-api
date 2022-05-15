@@ -6,6 +6,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.ManyToOne;
+import javax.validation.constraints.NotNull;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -24,12 +25,15 @@ public class Task {
     private int id;
 
     @Column(nullable = false)
+    @NotNull
     private String title;
 
     @Column(nullable = false)
+    @NotNull
     private String body;
 
     @Column(nullable = false)
+    @NotNull
     private boolean done;
 
     @ManyToOne

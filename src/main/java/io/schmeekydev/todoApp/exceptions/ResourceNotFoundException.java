@@ -19,4 +19,8 @@ public class ResourceNotFoundException extends RuntimeException {
         this.fieldName = fieldName;
         this.keyword = keyword;
     }
+
+    public ResourceNotFoundException(String message){
+        super(message);
+    }
 }

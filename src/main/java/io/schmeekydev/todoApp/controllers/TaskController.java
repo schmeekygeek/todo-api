@@ -4,6 +4,9 @@ import io.schmeekydev.todoApp.entities.Task;
 import io.schmeekydev.todoApp.payloads.ApiResponse;
 import io.schmeekydev.todoApp.services.TaskService;
 import java.util.List;
+
+import javax.validation.Valid;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -44,6 +47,7 @@ public class TaskController {
 	// CREATE task
 	@PostMapping("/user/{userID}")
 	public ResponseEntity<Task> createTask(
+        @Valid
 		@RequestBody Task task,
 		@PathVariable("userID") int userID
 	) {
@@ -54,6 +58,7 @@ public class TaskController {
 	// UPDATE task by task id
 	@PutMapping("/{taskID}")
 	public ResponseEntity<Task> updateTaskByID(
+        @Valid
 		@RequestBody Task newTask,
 		@PathVariable("taskID") int taskID
 	) {
