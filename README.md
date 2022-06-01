@@ -119,7 +119,7 @@ To access other endpoints of the api, the jwt token provided upon authentication
 **cURL** example:
 ```bash
 ▶ curl --request GET \
-  --url http://localhost:8080/api/v1/user/17 \
+  --url http://localhost:8080/api/v1/hello \
   --header 'Authorization: Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJqYXNvbkJybyIsImlhdCI6MTY1MjY0Mzc3MywiZXhwIjoxNjUyNjc5NzczfQ.JFckrLlA1E-8Qk5FJTxG6nO_tBi7EhS9OZvfVJ0Ugo0'
 
 ...
