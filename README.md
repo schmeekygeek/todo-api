@@ -1,4 +1,10 @@
 # To-Do Application API
+<p align="center">
+<img src="https://img.shields.io/static/v1.svg?style=for-the-badge&label=Spring&message=Boot&logoColor=d9e0ee&colorA=302d41&colorB=B5E8E0"/>
+<img src="https://jwt.io/img/badge-compatible.svg">
+
+</p>
+
 A permission based authorization system for API access control
 ___
 
@@ -131,3 +137,5 @@ Date: Sun, 15 May 2022 19:53:23 GMT
 <h1>Hello World</h1>
 ```
 A **Hello World** should be visible in the response.
+
+<p align="center"><a href="https://github.com/schmeekygeek/spring-cli/blob/main/LICENSE"><img src="https://img.shields.io/static/v1.svg?style=for-the-badge&label=License&message=GPL&logoColor=d9e0ee&colorA=302d41&colorB=B5E8E0"/></a></p>
